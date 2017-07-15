@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Drama.lk</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+  <body id="body">
+    <div id="flyoutMenu">
+      <h2> <a href="#b2">Home</a></h2>
+      <h2> <a href="#b3">Contact</a></h2>
+      <h2> <a href="#b4">About</a></h2>
+      <h2> <a href="#b5">Search</a></h2>
+    </div>
+    <div class =  "box1">
+
+      <button class="btn" id= "b">
+
+      </button>
+      <h1>Box One</h1>
+    </div>
+    <div id="b2" class =  "box2">
+      <h1>Box Two</h1>
+    </div>
+    <div id="b3" class =  "box3">
+      <h1>Box Three</h1>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <script>
+
+      $(window).scroll(function(){
+
+        var scroll = $(this).scrollTop();
+        $('.box1').css({
+          'transform' : 'translate(0px,' + scroll/2 + '%)'
+        });
+      });
+
+
+
+      var roundButton = document.querySelector("#b");
+      var flyoutMenu = document.querySelector("#flyoutMenu");
+
+
+      roundButton.addEventListener("click",showMenu,false);
+      flyoutMenu.addEventListener("click",hideMenu,false);
+
+
+      function showMenu(e){
+        flyoutMenu.classList.add("show");
+        roundButton.classList.add("hide");
+        document.body.style.overflow = "hidden";
+      }
+
+      function hideMenu(e){
+        flyoutMenu.classList.remove("show");
+        roundButton.classList.remove("hide");
+        e.stopPropagation();
+        document.body.style.overflow = "auto";
+      }
+
+
+
+    </script>
+  </body>
+</html>
